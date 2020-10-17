@@ -13,7 +13,10 @@
 }
 
 #carousel {
-    height: 80%;
+    height: 30%;
+}
+.picture{
+    height: 220px;
 }
 
 
