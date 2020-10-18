@@ -39,6 +39,20 @@ document.addEventListener('prechange', function(event) {
     })
   })
 
+  var db = firebase.firestore();
+  var index = 1;
+  db.collection("favourites").get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+      console.log(doc.data());
+      var id = doc.id
+      var vedioUrl = doc.data().videoURL
+      var pic = ` <ons-col width="30%" style="margin: 1%;"><img src="${doc.data().posterURL}" style="width:100%; height: 100%;">
+      </ons-col>`
+      $("#fav").append(pic);
+    })
+  })
+
+
   function hover(id){
 
     $("#"+id).mouseover(function() {
@@ -53,6 +67,7 @@ document.addEventListener('prechange', function(event) {
     
     
   }
+
 
   db.collection("movies").limit(5).get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
