@@ -64,8 +64,8 @@ $(function () {
           <ons-row>
             <ons-col width="100px" style="margin-bottom: 10px;"><img src="${doc.data().posterURL}" style="width:100%; height: 100%;"></ons-col>
               <ons-col>
-                <ons-row style="margin-left: 10px; margin-top: 10px ">${doc.data().title}</ons-row>
-                <ons-row style="margin-left: 10px; margin-top: 10px">${doc.data().shortstory}</ons-row>
+                <ons-row style="margin-left: 10px; margin-top: 10p"><B>${doc.data().title}</B></ons-row>
+                <ons-row style="margin-left: 10px; margin-top: 10px; text-align: left">${doc.data().shortstory}</ons-row>
               </ons-col>
           </ons-row>
       `
