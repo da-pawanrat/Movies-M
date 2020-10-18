@@ -103,4 +103,21 @@ $(function () {
       $("#list").append(row);
     });
   });
+
+  db.collection("movies").limit(10).get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+      // console.log(${doc.id} => ${doc.data()});
+      console.log(doc.data());
+      var row = `<ons-list-item style="grid-auto-rows: max-content;">
+           
+      
+      <ons-row>
+      <ons-col width="100px" style="margin-bottom: 10px;"><img src="${doc.data().posterURL}"
+      style="width:100%; height: 100%;">
+  </ons-col>
+  <ons-col style="margin-left: 10px; margin-top: 10px">${doc.data().title}<br>${doc.data().year}
+  </ons-col></ons-row></ons-list-item>`
+      $("#noti").append(row);
+    });
+  });
 });
