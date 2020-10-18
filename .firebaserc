@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "staging": "plearnhub-509b2",
+    "default": "plearnhub-509b2"
+  }
+}

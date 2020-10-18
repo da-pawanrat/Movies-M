@@ -1,3 +1,86 @@
+$(function(){
+  firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        // User is signed in.
+        var email = user.email;
+        $("#username").text(email)
+
+      } else {
+        window.location.href = 'signin.html';
+      }
+    });
+    
+  $("#signout").click(function(){
+     
+  });
+})
+
+function signout() {
+  firebase.auth().signOut().then(function() {
+    window.location.href = 'signin.html';
+  }).catch(function(error) {
+    // An error happened.
+  });
+  
+}
+
+$(function(){
+
+  firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        // User is signed in.
+        console.log(user);
+        window.location.href = 'index.html';
+      }
+    });
+
+    $("#signingoogle").click(function(){
+      var provider = new firebase.auth.GoogleAuthProvider();
+      provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+      firebase.auth().signInWithRedirect(provider);
+      firebase.auth().getRedirectResult().then(function(result) {
+          if (result.credential) {
+            // This gives you a Google Access Token. You can use it to access the Google API.
+            var token = result.credential.accessToken;
+            
+          }
+          // The signed-in user info.
+          var user = result.user;
+        }).catch(function(error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          console.log(errorCode);
+          $("#error").text(errorMessage);
+        });
+  });
+
+
+  $("#signinemail").click(function(){
+      var email = $("#email").val();
+      var password = $("#password").val();
+
+      firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          console.log(errorCode);
+          
+        });
+
+        
+
+
+        
+        
+  });
+
+  
+
+})
+
+
+
 document.addEventListener('prechange', function (event) {
   document.querySelector('ons-toolbar .center')
 
@@ -97,7 +180,7 @@ $(function () {
       var row = `<div class="card">
         <img class="card-img-top" src="${doc.data().posterURL}" alt="">
         <div class="card-body">
-          <h4 class="card-title">${doc.data().title}(${doc.data().years})</h4>
+          <h4 class="card-title">${doc.data().title}(${doc.data().year})</h4>
         </div>
       </div>`
       $("#list").append(row);
