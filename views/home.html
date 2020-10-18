@@ -14,7 +14,7 @@
     </div>
     <div class="col-4">
       <br>
-      <button type="button" class="btn button--light" style="width: 80px;" >Play</button>
+      <button type="button" class="btn button--light" style="width: 80px;" onclick="modalPlay()">Play</button>
     </div>
     <div class="col-4">
       <br>
@@ -26,12 +26,19 @@
     Top 5 of the week
   </h3>
   <div class="row">
-  
-  <div id="list">
+    <div id="list">
 
-  </div>
+    </div>
   </div>
 </div>
 
+<ons-modal direction="up">
+  <label style="margin-left: 90%; font-size: 15px;" onclick="modalClose()"> x </label>
+  <div style="text-align: center">
+    
+    <video style='width:100%; height:100%' id='' >
+      <source src="https://firebasestorage.googleapis.com/v0/b/plearnhub-509b2.appspot.com/o/after-official-trailer-2019-josephine-langford-hero-fiennes-tiffin-movie.mp4?alt=media&token=f7580ca5-3fce-4424-a72b-17c97e569b53" ></video>
+  </div>
+</ons-modal>
 
 </ons-page>

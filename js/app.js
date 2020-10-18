@@ -25,7 +25,7 @@ function signout() {
 }
 
 $(function(){
-
+  
   firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
         // User is signed in.
@@ -204,3 +204,43 @@ $(function () {
     });
   });
 });
+
+function showMovie(category) {
+    console.log(category);
+    $('#categoryType').hide()
+    $('#categoryName').show()
+    var db = firebase.firestore();
+    $('#categoryName').append('<label onclick="back()"> &nbsp;&nbsp;< </label>&nbsp;&nbsp;&nbsp;'+category)
+    db.collection(category).get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        
+        console.log(doc.data());
+        
+        var moive = `<div class="card">
+          <img class="card-img-top" src="${doc.data().posterURL}" alt="">
+          <div class="card-body">
+            <h4 class="card-title">${doc.data().title}(${doc.data().year})</h4>
+          </div>
+        </div>`;
+        
+        $("#movieType").append(moive);
+      });
+    });
+
+}
+
+function back() {
+  $('#categoryType').show()
+  $('#categoryName').empty()
+  $("#movieType").empty()
+}
+
+function modalPlay(){
+  var modal = document.querySelector('ons-modal');
+  modal.show();
+}
+
+function modalClose() {
+  var modal = document.querySelector('ons-modal');
+  modal.hide();
+}

@@ -1,15 +1,15 @@
 <ons-page id="category">
-  <ons-page>
+  
     <div>
      
 
-      <ons-list>
+      <ons-list id="categoryType">
         <ons-list-header>Category</ons-list-header>
         <ons-list-item style="grid-auto-rows: max-content;">
           <ons-row>
             
             <ons-col style=" margin-top: 20px"> 
-             <p style="text-align: center;">Romantic</p>
+             <p style="text-align: center;" onclick="showMovie('romantics')">Romantic</p>
             </ons-col>
           </ons-row>
 
@@ -23,19 +23,19 @@
           <ons-row>
             
             <ons-col style=" margin-top: 20px"> 
-              <p style="text-align: center;" >Horror</p>
+              <p style="text-align: center;" onclick="showMovie('horror')">Horror</p>
             </ons-col>
           </ons-row>
           <ons-row>
             
               <ons-col style=" margin-top: 20px"> 
-                <p style="text-align: center;">Comedy</p>
+                <p style="text-align: center;" onclick="showMovie('comedys')">Comedy</p>
               </ons-col>
             </ons-row>
             <ons-row>
             
               <ons-col style=" margin-top: 20px"> 
-                <p style="text-align: center;">Thriller</p>
+                <p style="text-align: center;" >Thriller</p>
               </ons-col>
             </ons-row>
             <ons-row>
@@ -70,6 +70,16 @@
             </ons-row>
         </ons-list-item>
       </ons-list>
-    </div>
+
+      <h3 id="categoryName" >
+      </h3>
+      <div style="width: 100%;">
+  
+        <div id="movieType">
+
+         
+
+        </div>
+      </div>
+      
   </ons-page>
-</ons-page>
