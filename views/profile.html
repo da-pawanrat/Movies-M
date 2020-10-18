@@ -1,15 +1,14 @@
 <ons-page>
   <ons-card>
-    <img src="images/4.jpg" alt="4" style="width: 100%"> 
-    </div>
-    <div class="content">
-      <ons-list-header>Hello Tom&Jerry</ons-list-header>
+  
     <ons-list-item>
       <div class="left">
-        <img class="list-item__thumbnail" src="https://placekitten.com/g/40/40">
+        <img class="profile" src="images/4.jpg">
       </div>
       <div class="center">
-        <span class="list-item__title">Hello Tom&Jerry</span>
+        <p style="font-size: large; text-align: center;"><span class="list-item__title">Hello Tom&Jerry</span></p>
+        <br>
+        <button type="button" class="btn button--light" style="width: 80px;" >EDIT</button>
       </div>
       
      
@@ -45,6 +44,12 @@
       </div>
     </ons-list-item>
     </ons-list>
+
+    <div class="container" style="margin-right: 20%;">
+      <!-- <div class="display-2">Home</div> -->
+      <!-- <div class="">Welcome, <span id="username"></span></div> -->
+      <button type="button" id="signout" onclick="signout()"class="btn btn-primary">Sign Out</button>
+  </div>
 
 
   </ons-card>
